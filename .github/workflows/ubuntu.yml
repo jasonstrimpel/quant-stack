@@ -37,11 +37,7 @@ jobs:
 
     - name: Create my_quant_lab Virtual Environment
       run: |
-        conda env create quant_lab --file quant-stack-3-10-env.yaml
-
-    - name: Activate my_quant_lab Virtual Environment
-      run: |
-        conda activate quant_lab
+        conda env create -n quant_lab --file quant-stack-3-10-env.yaml
 
     - name: Activate my_quant_lab Virtual Environment
       run: |
