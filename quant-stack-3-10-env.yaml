@@ -46,4 +46,4 @@ dependencies:
     - jupyterlab==3.6.5
     - traitlets==5.9.0
     - voila
-    - openbb-nightly[all]
+    - openbb-nightly
