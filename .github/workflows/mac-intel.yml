@@ -33,7 +33,7 @@ jobs:
 
     - name: Download conda-3-10-env.yaml from URL
       run: |
-        wget https://raw.githubusercontent.com/OpenBB-finance/OpenBBTerminal/main/build/conda/conda-3-10-env.yaml -O conda-3-10-env.yaml
+        wget https://raw.githubusercontent.com/jasonstrimpel/quant-stack/main/quant-stack-3-10-env.yaml -O quant-stack-3-10-env.yaml
 
     - name: Create my_quant_lab Virtual Environment
       run: |

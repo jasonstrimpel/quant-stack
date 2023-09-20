@@ -33,7 +33,7 @@ jobs:
 
     - name: Download conda-3-10-env.yaml from URL
       run: |
-        Invoke-WebRequest -Uri https://raw.githubusercontent.com/OpenBB-finance/OpenBBTerminal/main/build/conda/conda-3-10-env.yaml -OutFile conda-3-10-env.yaml
+        Invoke-WebRequest -Uri https://raw.githubusercontent.com/jasonstrimpel/quant-stack/main/quant-stack-3-10-env.yaml -OutFile quant-stack-3-10-env.yaml
 
     - name: Create my_quant_lab Virtual Environment
       run: |
