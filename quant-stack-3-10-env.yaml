@@ -1,0 +1,49 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python =3.10.8
+  - git
+  # Build dependencies
+  - pip
+  - pybind11
+  - cython
+  - cmake
+  # System dependencies
+  - openssl
+  - libtiff
+  # Main dependencies
+  - numpy ==1.23.4
+  # Forecasting dependencies
+  - ffmpeg
+  - lightgbm ==3.3.5
+  # Optimization dependencies
+  - cvxpy ==1.2.2
+  - h5py
+  - pytables
+  - ta-lib
+
+  - pip:
+    # Build dependencies
+    - poetry ==1.4.0
+    # Main dependencies
+    - charset-normalizer ==3.1.0
+    # Forecasting dependencies
+    - catboost ==1.1.1
+    - xgboost ==1.7.4
+    # Optimization dependencies
+    - qdldl ==0.1.5.post3
+    - jupyter-client==7.4.1
+    - jupyter-core==5.3.1
+    - jupyter-events==0.6.3
+    - jupyter-server-fileid==0.9.0 
+    - jupyter-server-ydoc==0.8.0
+    - jupyter-server==1.23.6
+    - jupyter-ydoc==0.2.5
+    - jupyterlab-pygments==0.2.2
+    - jupyterlab-server==2.23.0
+    - jupyterlab-widgets==3.0.8
+    - jupyterlab==3.6.5
+    - traitlets==5.9.0
+    - voila
+    - openbb-nightly[all]

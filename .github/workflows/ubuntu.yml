@@ -1,0 +1,54 @@
+name: Setup Anaconda Environment for Ubuntu
+
+on: [push, pull_request]
+
+jobs:
+  setup-env:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Anaconda (Ubuntu)
+      run: |
+        wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh -O ~/anaconda.sh
+        bash ~/anaconda.sh -b -p $HOME/anaconda3
+        echo "$HOME/anaconda3/bin" >> $GITHUB_PATH
+
+    - name: Update Anaconda
+      run: |
+        conda update -n base -c conda-forge conda
+
+    - name: Verify Anaconda Installation
+      run: |
+        conda --version
+        python --version
+
+    - name: Set Up Cache for Conda Packages
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/anaconda3/pkgs
+        key: ubuntu-conda-${{ hashFiles('**/quant-stack-3-10-env.yaml') }}
+
+    - name: Download conda-3-10-env.yaml from URL
+      run: |
+        wget https://raw.githubusercontent.com/OpenBB-finance/OpenBBTerminal/main/build/conda/conda-3-10-env.yaml -O conda-3-10-env.yaml
+
+    - name: Create my_quant_lab Virtual Environment
+      run: |
+        conda env create quant_lab --file quant-stack-3-10-env.yaml
+
+    - name: Activate my_quant_lab Virtual Environment
+      run: |
+        conda activate quant_lab
+
+    - name: Activate my_quant_lab Virtual Environment
+      run: |
+        conda activate quant_lab
+
+    - name: Install Additional Stack Packages
+      run: |
+        pip install pyfolio-reloaded==0.9.5 alphalens-reloaded==0.4.3 quantstats==0.0.62 --no-deps
+        pip install zipline-reloaded==3.0.3
+        pip uninstall bottleneck -y
